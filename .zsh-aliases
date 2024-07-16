@@ -1,0 +1,4 @@
+export pritunl_id='5goeke7sryfkfugc'
+alias cat='bat'
+alias cddpay='cd ~/Documents/code/dpay && gvm use go1.19'
+alias cdoitpay='cd ~/Documents/code/doitpay && gvm use go1.21'
