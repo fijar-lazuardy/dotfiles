@@ -69,6 +69,8 @@ export MUSIC_APP=$(playerctl -l | grep tidal-hifi)
 if [[ -z "$MUSIC_APP" ]]; then
     export MUSIC_APP=$(playerctl -l | grep chromium)
 fi
+export HTTP_PROXY="http://192.168.18.108:6969"
+export HTTPS_PROXY="http://192.168.18.108:6969"
 alias ls='ls --color=auto'
 alias la='ls -a --color=auto'
 export TMUX_CONF="$HOME/.config/.tmux"
