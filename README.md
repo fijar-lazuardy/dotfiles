@@ -18,7 +18,7 @@ cd ~ && git clone https://github.com/fijar-lazuardy/dotfiles.git && cd dotfiles 
 ```
 
 ## Method 2
-Install all tools used in this repo automatically
+Install all tools used in this repo automatically (only supports macOS and Debian based/Arch based Linux)
 
 ```bash
 cd ~ && git clone https://github.com/fijar-lazuardy/dotfiles.git && cd dotfiles && bash install.sh
