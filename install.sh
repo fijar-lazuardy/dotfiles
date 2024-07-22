@@ -13,7 +13,7 @@ else
     exit 1
 fi
 
-PACKAGE_LIST="zsh docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin docker-compose bison ripgrep fzf tmux stow"
+PACKAGE_LIST="zsh docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin docker-compose bison ripgrep fzf tmux stow neofetch"
 
 
 # Function to install tools on macOS
