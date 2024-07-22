@@ -2,3 +2,13 @@ export pritunl_id='5goeke7sryfkfugc'
 alias cat='bat'
 alias cddpay='cd ~/Documents/code/dpay && gvm use go1.19'
 alias cdoitpay='cd ~/Documents/code/doitpay && gvm use go1.21'
+alias cdcode='cd ~/Documents/code'
+alias lmp='load_music_player'
+
+
+load_music_player() {
+  export MUSIC_APP=$(playerctl -l | grep tidal-hifi)
+  if [[ "$MUSIC_APP" == "No players found" ]]; then
+    export MUSIC_APP=$(playerctl -l | grep chromium)
+  fi
+}

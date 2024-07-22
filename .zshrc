@@ -21,31 +21,12 @@ DRACULA_DISPLAY_FULL_CWD=1
 
 alias vim="nvim"
 alias conf-vim="cd ~/.config/nvim && vim ~/.config/nvim"
-#alias cdcode="cd $HOME/Documents/code.nosync"
-# alias zshconfig="mate ~/.zshrc"
-# alias ohmyzsh="mate ~/.oh-my-zsh"
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 export PATH="$HOME/.local/bin:$PATH"
-# 👇️ make sure to update the path with the output
-# # from the command
 export PATH="/usr/local/share/npm/bin:$PATH"
 export GIT_TERMINAL_PROMPT=1
-export GEM_HOME=~/.ruby/
-export PATH="$PATH:~/.ruby/bin"
 export alias python3='python'
-export PATH=/Users/lazzuuu/app/flutter/bin:$PATH
-export ANDROID_HOME=$HOME/Library/Android/sdk
-
-#Tools exporting - it can be need in your case
-export PATH=$PATH:$ANDROID_HOME/emulator:$PATH
-export PATH=$PATH:$ANDROID_HOME/tools:$PATH
-export PATH=$PATH:$ANDROID_HOME/tools/bin:$PATH
-export PATH=$ANDROID_HOME/platform-tools:$PATH
 alias python="python3"
-export PATH="/opt/homebrew/opt/openjdk/bin:$PATH"
-export PATH="/Users/lazzuuu/.ebcli-virtual-env/executables:$PATH"
-export PATH="/opt/homebrew/opt/go@1.18/bin:$PATH"
-export MUSIC_APP="Music"
 source ~/.zsh-aliases
 source ~/.zsh/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 
@@ -65,12 +46,15 @@ fi
 export GOPRIVATE="github.com/durianpay"
 export GO111MODULE=on
 export PATH="$PATH:$(go env GOPATH)/bin"
-export MUSIC_APP=$(playerctl -l | grep tidal-hifi)
-if [[ -z "$MUSIC_APP" ]]; then
-    export MUSIC_APP=$(playerctl -l | grep chromium)
-fi
 export HTTP_PROXY="http://192.168.18.108:6969"
 export HTTPS_PROXY="http://192.168.18.108:6969"
+export NO_PROXY="192.168.18.104,*.durianpay.id,localhost,*.microsoft.com"
 alias ls='ls --color=auto'
 alias la='ls -a --color=auto'
 export TMUX_CONF="$HOME/.config/.tmux"
+
+
+tmux() {
+    command tmux -f "$HOME/.config/.tmux/.tmux.conf" "$@"
+}
+fpath+=${ZDOTDIR:-~}/.zsh_functions
