@@ -5,7 +5,8 @@
 
 Simply setup and manage your dotfiles
 
-- Terminal: [kitty](https://sw.kovidgoyal.net/kitty/binary/) or [Alacritty](https://alacritty.org/config-alacritty.html)
+- Editor: [neovim](https://neovim.io/) (best editor btw)
+- Terminal: [kitty](https://sw.kovidgoyal.net/kitty/binary/) (default) or [Alacritty](https://alacritty.org/config-alacritty.html) (alternative)
 - Shell: zsh
 - Colorscheme: [Dracula](https://draculatheme.com)
 - Workspace: tmux
