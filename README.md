@@ -1,3 +1,6 @@
+# Make your terminal beautiful
+![alt text](screenshots/ss.png)
+
 # Dotfiles
 
 Simply setup and manage your dotfiles
@@ -6,7 +9,6 @@ Simply setup and manage your dotfiles
 - Shell: zsh
 - Colorscheme: [Dracula](https://draculatheme.com)
 - Workspace: tmux
-
 
 # Installation
 
