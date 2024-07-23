@@ -1,5 +1,6 @@
 # Make your terminal beautiful
-![alt text](screenshots/ss.png)
+![neofetch](screenshots/ss.png)
+![nvim_startup](screenshots/startup.png)
 
 # Dotfiles
 
