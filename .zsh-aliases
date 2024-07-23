@@ -4,6 +4,7 @@ alias cddpay='cd ~/Documents/code/dpay && gvm use go1.19'
 alias cdoitpay='cd ~/Documents/code/doitpay && gvm use go1.21'
 alias cdcode='cd ~/Documents/code'
 alias lmp='load_music_player'
+alias icat='kitten icat'
 
 
 load_music_player() {

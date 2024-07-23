@@ -1,3 +1,2 @@
-screenshots/
-*.log
-*.sh
+^/*.sh
+\screenshots

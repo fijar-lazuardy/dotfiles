@@ -151,8 +151,7 @@ require('lazy').setup({
     main = 'ibl',
     opts = {},
   },
-  --
-  --   -- "gc" to comment visual regions/lines
+  -- "gc" to comment visual regions/lines
   { 'numToStr/Comment.nvim', opts = {} },
   --
   -- Fuzzy Finder (files, lsp, etc)
@@ -574,6 +573,7 @@ mason_lspconfig.setup_handlers {
 -- [[ Configure nvim-cmp ]]
 -- See `:help cmp`
 local cmp = require 'cmp'
+local cmp_autopairs = require('nvim-autopairs.completion.cmp')
 local luasnip = require 'luasnip'
 require('luasnip.loaders.from_vscode').lazy_load()
 luasnip.config.setup {}
@@ -624,6 +624,11 @@ cmp.setup {
   },
 }
 
+cmp.event:on(
+  'confirm_done',
+  cmp_autopairs.on_confirm_done()
+)
+
 -- The line beneath this is called `modeline`. See `:help modeline`
 -- vim: ts=2 sts=2 sw=2 et
 -- vim.api.nvim_set_hl(0, 'FloatBorder', {bg='#44475A', fg='#5E81AC'})
@@ -634,3 +639,6 @@ vim.api.nvim_set_keymap('n', '<leader>p', '"_dP', { noremap = true, silent = tru
 
 -- Visual mode: Delete selected text to black hole register and paste
 vim.api.nvim_set_keymap('v', '<leader>p', '"_dP', { noremap = true, silent = true })
+
+vim.g.dashboard_default_executive = 'telescope'
+
