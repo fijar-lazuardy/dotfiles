@@ -248,6 +248,9 @@ vim.opt.tabstop = 4
 vim.o.softtabstop = 4
 vim.o.shiftwidth = 4
 vim.o.expandtab = true
+vim.opt.incsearch = true
+vim.opt.scrolloff = 10
+-- Custom keybindings for scroll
 -- [[ Basic Keymaps ]]
 
 -- Keymaps for better default experience
@@ -265,6 +268,8 @@ vim.keymap.set('n', 'k', "v:count == 0 ? 'gk' : 'k'", { expr = true, silent = tr
 vim.keymap.set('n', 'j', "v:count == 0 ? 'gj' : 'j'", { expr = true, silent = true })
 vim.keymap.set("v", "J", ":m '>+1<CR>gv=gv")
 vim.keymap.set("v", "K", ":m '<-2<CR>gv=gv")
+vim.keymap.set('n', '<C-d>', "<C-d>zz")
+vim.keymap.set('n', '<C-u>', "<C-u>zz")
 
 -- [[ Highlight on yank ]]
 -- See `:help vim.highlight.on_yank()`
@@ -279,12 +284,21 @@ vim.api.nvim_create_autocmd('TextYankPost', {
 
 -- [[ Configure Telescope ]]
 -- See `:help telescope` and `:help telescope.setup()`
+local actions = require("telescope.actions")
+local state = require("telescope.actions.state")
 require('telescope').setup {
   defaults = {
     mappings = {
       i = {
         ['<C-u>'] = false,
         ['<C-d>'] = false,
+      },
+      n = {
+        -- Jump 5 files down
+        ["<C-j>"] = actions.results_scrolling_down,
+
+        -- Jump 5 files up
+        ["<C-k>"] = actions.results_scrolling_down,
       },
     },
   },
