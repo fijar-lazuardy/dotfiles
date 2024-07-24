@@ -22,7 +22,19 @@ main()
   fi
   # echo $MUSIC_APP
   playerctl_playback=$(playerctl --player=$MUSIC_APP metadata --format "${FORMAT}")
-  echo ${playerctl_playback}
+
+  length=${#playerctl_playback}
+
+  # Check if the length is greater than 25
+  if [ "$length" -gt 40 ]; then
+    # Extract the first 25 characters
+    substring="${playerctl_playback:0:40}"
+  else
+    # Use the original string if it's 25 characters or less
+    substring="$playerctl_playback"
+  fi
+
+  echo "$substring"
 
 }
 

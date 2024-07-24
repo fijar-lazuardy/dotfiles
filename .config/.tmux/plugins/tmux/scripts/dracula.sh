@@ -107,7 +107,7 @@ main()
   fi
 
   # set length
-  tmux set-option -g status-left-length 100
+  tmux set-option -g status-left-length 500
   tmux set-option -g status-right-length 100
 
   # pane border styling
