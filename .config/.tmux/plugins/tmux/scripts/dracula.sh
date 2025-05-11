@@ -32,7 +32,7 @@ main()
   time_format=$(get_tmux_option "@dracula-time-format" "")
   show_ssh_session_port=$(get_tmux_option "@dracula-show-ssh-session-port" false)
   IFS=' ' read -r -a plugins <<< $(get_tmux_option "@dracula-plugins" "battery network weather")
-  IFS=' ' read -r -a plugins_left <<< $(get_tmux_option "@dracula-left-plugins" "ram-usage cpu-usage")
+  IFS=' ' read -r -a plugins_left <<< $(get_tmux_option "@dracula-left-plugins" "ram-usage cpu-usage gpu-usage")
   show_empty_plugins=$(get_tmux_option "@dracula-show-empty-plugins" true)
 
   # Dracula Color Pallette
@@ -135,6 +135,10 @@ main()
     elif [ $plug = "ram-usage" ]; then
       IFS=' ' read -r -a colors <<< $(get_tmux_option "@dracula-ram-usage-colors" "cyan dark_gray")
       scripts="#($current_dir/ram_info.sh)"
+
+    elif [ $plug = "gpu-usage" ]; then
+      IFS=' ' read -r -a colors <<< $(get_tmux_option "@dracula-gpu-usage-colors" "pink dark_gray")
+      scripts="#($current_dir/gpu_usage.sh)"
     fi
 
     if $show_powerline; then

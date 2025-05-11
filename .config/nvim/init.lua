@@ -529,7 +529,7 @@ local servers = {
     }
   },
   -- rust_analyzer = {},
-  tsserver = {},
+  ts_ls = {},
   astro = {},
   -- html = { filetypes = { 'html', 'twig', 'hbs'} },
 
