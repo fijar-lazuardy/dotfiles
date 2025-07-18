@@ -1,14 +1,26 @@
 export pritunl_id='5goeke7sryfkfugc'
 alias cat='bat'
-alias cddpay='cd ~/Documents/code/dpay && gvm use go1.19'
+alias act_doit='act push -j code_analysis --secret-file ~/.doitpay/.secrets'
 alias cdoitpay='cd ~/Documents/code/doitpay && gvm use go1.21'
 alias cdcode='cd ~/Documents/code'
-alias rundoitmigrate='make run-migrate CONFIG_PATH=dev/local_config.yml'
 alias lmp='load_music_player'
 alias icat='kitten icat'
-alias instaload='instaloader --latest-stamps --'
-alias xclip='xclip -selection clipboard'
+alias localworker='cd ~/Documents/code/doitpay/doitpay && make run-local-worker CONFIG_PATH=dev/local_config.yml'
+alias localtemporalworker='cd ~/Documents/code/doitpay/doitpay && make run-local-temporal-worker CONFIG_PATH=dev/local_config.yml'
+alias localapp='cd ~/Documents/code/doitpay/doitpay && make run-local CONFIG_PATH=dev/local_config.yml'
 
+disbstatus() {
+  go run ./cmd/app/main.go get-disbursement-status -c dev/local_config.yml --reference_id="$1"
+}
+
+alias kubeapp='kubectl config set-context --current --namespace=app'
+alias kclive='kubectl config use-context arn:aws:eks:ap-southeast-3:975050366595:cluster/live && kubectl config current-context'
+alias kcstaging='kubectl config use-context arn:aws:eks:ap-southeast-3:975050366595:cluster/staging && kubectl config current-context'
+alias kcsandbox='kubectl config use-context arn:aws:eks:ap-southeast-3:975050366595:cluster/sandbox && kubectl config current-context'
+alias vpnstaging='sudo openvpn --config /home/lazu/Documents/code/doitpay/vpn-doitpay/s-doitpay.ovpn'
+alias vpnprod='sudo openvpn --config /home/lazu/Documents/code/doitpay/vpn-doitpay/fijar.ovpn'
+alias vpnbox='sudo openvpn --config /home/lazu/Documents/code/doitpay/vpn-doitpay/sandbox.ovpn'
+alias vpnops='sudo openvpn --config /home/lazu/Documents/code/doitpay/vpn-doitpay/ops_new.ovpn'
 
 load_music_player() {
   export MUSIC_APP=$(playerctl -l | grep tidal-hifi)
@@ -16,3 +28,14 @@ load_music_player() {
     export MUSIC_APP=$(playerctl -l | grep chromium)
   fi
 }
+alias sudonvim='sudo XDG_CONFIG_HOME=/home/lazu/.config XDG_DATA_HOME=/home/lazu/.local/share nvim'
+alias kubepods='kubectl get pods -n app | fzf'
+
+ get-pod() {
+   export POD=$(kubepods | fzf | awk "{print \$1}")
+   echo $POD
+}
+
+
+alias kubelogs='get-pod && kubectl logs -f -n app $POD'
+alias kubebash='get-pod && kubectl exec -it $POD -n app -- bash'
